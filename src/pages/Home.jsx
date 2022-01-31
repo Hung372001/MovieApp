@@ -1,0 +1,57 @@
+import React from "react";
+import { Link } from "react-router-dom";
+import { movieType } from "../api/tmdbApi";
+import { OutlineButton } from "../components/button/Button";
+import Movielist from "../components/movieList/movielist";
+import HeroSlide from "./../components/hero-slide/HeroSlide";
+import { category, tvType } from "../api/tmdbApi";
+const Home = () => {
+  return (
+    <>
+      <HeroSlide />
+      <div className="container">
+        <div className="section mb-3">
+          <div className="section__header mb-2">
+            <h2>Trending MoVie</h2>
+            <Link to="/movie">
+              <OutlineButton className="small"> View More</OutlineButton>
+            </Link>
+          </div>
+          <Movielist category={category.movie} type={movieType.popular} />
+        </div>
+
+        <div className="section mb-3">
+          <div className="section__header mb-2">
+            <h2>Top Rated Movies</h2>
+            <Link to="/movie">
+              <OutlineButton className="small"> View More</OutlineButton>
+            </Link>
+          </div>
+          <Movielist category={category.movie} type={movieType.top_rated} />
+        </div>
+
+        <div className="section mb-3">
+          <div className="section__header mb-2">
+            <h2>Trending TV</h2>
+            <Link to="/tv">
+              <OutlineButton className="small"> View More</OutlineButton>
+            </Link>
+          </div>
+          <Movielist category={category.tv} type={tvType.popular} />
+        </div>
+
+        <div className="section mb-3">
+          <div className="section__header mb-2">
+            <h2>Top Rated TV</h2>
+            <Link to="/tv">
+              <OutlineButton className="small"> View More</OutlineButton>
+            </Link>
+          </div>
+          <Movielist category={category.tv} type={tvType.top_rated} />
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default Home;
